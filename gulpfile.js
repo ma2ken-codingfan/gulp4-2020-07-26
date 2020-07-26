@@ -8,15 +8,16 @@ series(直列処理)とparallel(並列処理)
 const { src, dest, watch, series, parallel } = require('gulp')
 
 //scss
-const sass = require('sass')
+const gulpsass = require("gulp-sass")
 const plumber = require("gulp-plumber")    // エラーが発生しても強制終了させない
 const notify = require("gulp-notify")      // エラー発生時のアラート出力
 const postcss = require("gulp-postcss")    // PostCSS利用
-const cssnext = require("postcss-cssnext")  // CSSNext利用
 const cleanCSS = require("gulp-clean-css") // 圧縮
 const rename = require("gulp-rename")      // ファイル名変更
 const sourcemaps = require("gulp-sourcemaps")  // ソースマップ作成
 const mqpacker = require('css-mqpacker')     //メディアクエリをまとめる
+const autoprefixer = require('autoprefixer')
+const flexBugsFixes = require('postcss-flexbugs-fixes') // flexbox バグ対策
 
 //js babel
 const babel = require("gulp-babel");
@@ -28,19 +29,14 @@ const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminPngquant = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
 
-//postcss-cssnext ブラウザ対応条件 prefix 自動付与
 const browserSync = require("browser-sync")
 
 
-//postcss-cssnext ブラウザ対応条件 prefix 自動付与
-const browsers = [
-  'last 2 versions',
-  '> 5%',
-  'ie = 11',
-  'not ie <= 10',
-  'ios >= 8',
-  'and_chr >= 5',
-  'Android >= 5',
+//postcss
+
+const postcssOption = [
+  flexBugsFixes,
+  autoprefixer()
 ]
 
 //参照元パス
@@ -57,7 +53,7 @@ const destPath = {
   cssMin: 'dest/',
   js: 'dest/js/',
   img: 'dest/images/',
-  css: 'src/css/'
+  css: 'src/css/',
 }
 // プラグインの処理をまとめる
 
@@ -77,14 +73,13 @@ const cssSass = (cb) => {
         }
       )
     )
-    .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(dest(destPath.css))     //コンパイル先 src/css 圧縮前　css確認用
+    .pipe(gulpsass({ outputStyle: 'expanded' }))
     .pipe(postcss([mqpacker()])) // メディアクエリを圧縮
-    .pipe(postcss([cssnext(browsers)]))//cssnext
+    .pipe(postcss(postcssOption)) // 別ファイル　postcssOption
+    .pipe(dest(destPath.css))     //コンパイル先 src/css 圧縮前　css確認用
     .pipe(sourcemaps.write('/maps'))  //ソースマップの出力
     .pipe(cleanCSS()) // CSS圧縮
     .pipe(dest(destPath.cssMin))     //コンパイル先　dest/ 圧縮後css
-
   cb()
 }
 
