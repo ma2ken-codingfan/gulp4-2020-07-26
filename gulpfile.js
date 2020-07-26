@@ -8,7 +8,7 @@ series(直列処理)とparallel(並列処理)
 const { src, dest, watch, series, parallel } = require('gulp')
 
 //scss
-const sass = require('gulp-sass')
+const sass = require('sass')
 const plumber = require("gulp-plumber")    // エラーが発生しても強制終了させない
 const notify = require("gulp-notify")      // エラー発生時のアラート出力
 const postcss = require("gulp-postcss")    // PostCSS利用
