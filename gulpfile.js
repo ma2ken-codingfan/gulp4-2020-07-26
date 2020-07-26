@@ -78,12 +78,12 @@ const cssSass = (cb) => {
       )
     )
     .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(dest(destPath.css))     //コンパイル先
+    .pipe(dest(destPath.css))     //コンパイル先 src/css 圧縮前　css確認用
     .pipe(postcss([mqpacker()])) // メディアクエリを圧縮
     .pipe(postcss([cssnext(browsers)]))//cssnext
     .pipe(sourcemaps.write('/maps'))  //ソースマップの出力
     .pipe(cleanCSS()) // CSS圧縮
-    .pipe(dest(destPath.cssMin))     //コンパイル先
+    .pipe(dest(destPath.cssMin))     //コンパイル先　dest/ 圧縮後css
 
   cb()
 }
@@ -146,7 +146,8 @@ const browserSyncFunc = () => {
 
 const browserSyncOption = {
   server: {
-    index: 'dest/index.html',
+    baseDir: destPath.html,
+    proxy: 'localhost',
   },
 }
 
