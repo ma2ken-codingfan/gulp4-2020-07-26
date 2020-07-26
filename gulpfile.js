@@ -166,4 +166,4 @@ const watchFiles = () => {
 }
 
 // タスクをまとめて実行
-exports.default = series(series(htmlCopy, cssSass, jsBabel, imgImagemin), parallel(watchFiles, browserSyncFunc))
+exports.default = series(series(htmlCopy, cssSass, jsBabel, imgImagemin, parallel(watchFiles, browserSyncFunc)))
