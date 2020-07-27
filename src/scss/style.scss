@@ -1,8 +1,5 @@
 @charset "UTF-8";
-body {
-  width: 100%;
-}
 
-h1 {
-  color: green;
-}
+@import "Foundation/sanitize";
+@import "Foundation/base";
+
