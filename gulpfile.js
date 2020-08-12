@@ -74,7 +74,7 @@ const cssSass = (cb) => {
       )
     )
     .pipe(gulpsass({ outputStyle: 'expanded' }))
-    .pipe(postcss([mqpacker()])) // メディアクエリを圧縮
+    .pipe(postcss([mqpacker()])) // メディアクエリをまとめる
     .pipe(postcss(postcssOption)) // 別ファイル　postcssOption
     .pipe(dest(destPath.css))     //コンパイル先 src/css 圧縮前　css確認用
     .pipe(sourcemaps.write('/maps'))  //ソースマップの出力
