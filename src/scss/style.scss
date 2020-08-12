@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
-@import "Foundation/sanitize";
-@import "Foundation/base";
+@import "Foundation/vender/sanitize";
+@import "Foundation/basic/base";
+@import "Foundation/basic/wrapper";
+@import "Foundation/basic/header";
+@import "Foundation/basic/nav";
+@import "Foundation/basic/slider";
+@import "Foundation/basic/contents";
+@import "Foundation/basic/main";
+@import "Foundation/basic/footer";
+@import "Foundation/variable/variable";
+
+@import "Layout/l-wrapper";
+@import "Layout/l-header";
+@import "Layout/l-nav";
+@import "Layout/l-main";
+@import "Layout/l-contents";
+@import "Layout/l-sidebar";
+@import "Layout/l-footer";
 
