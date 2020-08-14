@@ -1,0 +1,15 @@
+.l-header__inner,
+.l-topNav__inner,
+.l-slider__inner,
+.l-footer__inner {
+  width: 1200px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.l-contents__inner {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  width: 1200px;
+  margin: 0 auto;
+}

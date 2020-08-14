@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="wrapper l-wrapper">
-
-    <header class="header l-header">
+  <header class="header l-header">
+    <div class="inner l-header__inner">
       <p>Header will be bo here</p>
-    </header>
-    <!-- /.header -->
+    </div>
+    <!-- /.l-header__inner -->
+  </header>
+  <!-- /.header -->
 
-    <nav class="topNav l-topNav">
+  <nav class="topNav l-topNav">
+    <div class="inner l-topNav__inner">
       <p>Navigation will be go here</p>
-    </nav>
+    </div>
+    <!-- /.l-topNav_inner -->
+  </nav>
 
-    <div class="slider l-slider">
+  <div class="slider l-slider">
+    <div class="inner l-slider__inner">
       <p>Slider will be go here</p>
     </div>
-    <!-- /.slider -->
+    <!-- /.l-slider__inner -->
+  </div>
+  <!-- /.slider -->
 
-    <main class="main l-main">
+  <div class="contents l-contents">
+    <div class="inner l-contents__inner">
+      <main class="main l-main">
+        <article>
+          <p>Post will be go here</p>
+        </article>
+      </main>
 
-        <section class="contents l-contents">
-          <article>
-            <p>Post will be go here</p>
-          </article>
-
-        </section>
-        <!-- /.contents -->
-
-        <aside class="sidebar l-sidebar">
-          Right sidebar will go here
-        </aside>
-        <!-- /.sidebar -->
-
-    </main>
-    <!-- /.l-main -->
-
-    <footer class="footer l-footer">
-      <p>Footer will go here</p>
-    </footer>
-    <!-- /.l-footer -->
+      <aside class="sidebar l-sidebar">
+        <p>Right sidebar will go here</p>
+      </aside>
+      <!-- /.sidebar -->
+    </div>
+    <!-- /.l-contents -->
 
   </div>
-  <!-- /.l-wrapper -->
+  <!-- /.contents -->
+
+  <footer class="footer l-footer">
+    <div class="inner l-footer__inner">
+      <p>Footer will go here</p>
+    </div>
+    <!-- /.l-footer -->
+
+  </footer>
+  <!-- /.l-footer -->
 
 </body>
+
 </html>

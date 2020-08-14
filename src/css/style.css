@@ -6,7 +6,8 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /**
@@ -486,6 +487,7 @@ select,
 summary,
 textarea,
 [tabindex] {
+  -ms-touch-action: manipulation;
   /* 1 */
   touch-action: manipulation;
   /* 2 */
@@ -544,7 +546,54 @@ body {
   background-color: #ddd;
 }
 
+.header {
+  background-color: #222;
+  color: #fff;
+}
+
+.topNav {
+  background-color: #333;
+}
+
+.contents {
+  background-color: #555;
+}
+
+.main {
+  border-right: solid 1px;
+}
+
+.slider {
+  background-color: #444;
+}
+
+.footer {
+  background-color: #666;
+}
+
+.inner {
+  background-color: #fff;
+  color: #222;
+  border-bottom: 1px solid #222;
+}
+
 .l-wrapper {
-  width: 960px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.l-header__inner,
+.l-topNav__inner,
+.l-slider__inner,
+.l-footer__inner {
+  width: 1200px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.l-contents__inner {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  width: 1200px;
   margin: 0 auto;
 }
