@@ -582,6 +582,10 @@ body {
   margin: 0 auto;
 }
 
+.l-contents {
+  width: 100%;
+}
+
 .l-header__inner,
 .l-topNav__inner,
 .l-slider__inner,
