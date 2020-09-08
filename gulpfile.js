@@ -18,6 +18,7 @@ const sourcemaps = require("gulp-sourcemaps")  // ソースマップ作成
 const mqpacker = require('css-mqpacker')     //メディアクエリをまとめる
 const autoprefixer = require('autoprefixer')
 const flexBugsFixes = require('postcss-flexbugs-fixes') // flexbox バグ対策
+const del = require("del")
 
 //js babel
 const babel = require("gulp-babel");
@@ -56,6 +57,11 @@ const destPath = {
   css: 'src/css/',
 }
 // プラグインの処理をまとめる
+
+const clean = (cb) => {
+  del(['dest/**'])
+  cb()
+}
 
 const htmlCopy = (cb) => {
   src(srcPath.html)
@@ -142,7 +148,7 @@ const browserSyncFunc = () => {
 const browserSyncOption = {
   server: {
     baseDir: destPath.html,
-    proxy: 'localhost',
+//     proxy: 'localhost',
   },
 }
 
@@ -161,4 +167,4 @@ const watchFiles = () => {
 }
 
 // タスクをまとめて実行
-exports.default = series(series(htmlCopy, cssSass, jsBabel, imgImagemin, parallel(watchFiles, browserSyncFunc)))
+exports.default = series(series(clean, htmlCopy, cssSass, jsBabel, imgImagemin, parallel(watchFiles, browserSyncFunc)))
