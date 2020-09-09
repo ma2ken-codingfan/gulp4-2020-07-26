@@ -2,7 +2,8 @@
 
 @import "foundation/vender/sanitize";
 
-@import "foundation/variable/variable";
+@import "foundation/variable";
+@import "foundation/mixin";
 
 @import "foundation/basic/base";
 @import "foundation/basic/wrapper";
@@ -25,9 +26,9 @@
 @import "layout/l-footer";
 @import "layout/l-inner";
 
-@import "object/component/component";
-@import "object/project/project";
-@import "object/theme/theme";
-@import "object/utility/utility";
+@import "object/component";
+@import "object/project";
+@import "object/theme";
+@import "object/utility";
 
 

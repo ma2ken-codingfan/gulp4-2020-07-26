@@ -21,14 +21,14 @@ const flexBugsFixes = require('postcss-flexbugs-fixes') // flexbox バグ対策
 const del = require("del")
 
 //js babel
-const babel = require("gulp-babel");
-const uglify = require("gulp-uglify");
+const babel = require("gulp-babel")
+const uglify = require("gulp-uglify")
 
 //画像圧縮
-const imagemin = require("gulp-imagemin");
-const imageminMozjpeg = require("imagemin-mozjpeg");
-const imageminPngquant = require("imagemin-pngquant");
-const imageminSvgo = require("imagemin-svgo");
+const imagemin = require("gulp-imagemin")
+const imageminMozjpeg = require("imagemin-mozjpeg")
+const imageminPngquant = require("imagemin-pngquant")
+const imageminSvgo = require("imagemin-svgo")
 
 const browserSync = require("browser-sync")
 
@@ -60,6 +60,7 @@ const destPath = {
 
 const clean = (cb) => {
   del(['dest/**'])
+  del(['src/css/**'])
   cb()
 }
 
@@ -142,7 +143,7 @@ const imgImagemin = (cb) => {
 
 //ローカルサーバー立ち上げ、ファイル監視と自動リロード
 const browserSyncFunc = () => {
-  browserSync.init(browserSyncOption);
+  browserSync.init(browserSyncOption)
 }
 
 const browserSyncOption = {
