@@ -147,9 +147,9 @@ const browserSyncFunc = () => {
 }
 
 const browserSyncOption = {
+  // proxy: 'localhost',
   server: {
-    baseDir: destPath.html,
-//     proxy: 'localhost',
+    baseDir: destPath.html,  
   },
 }
 
